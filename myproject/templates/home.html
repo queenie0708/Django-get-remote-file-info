@@ -30,11 +30,8 @@
              <td>
                {{ dir }}
              </td>
-             <td class="align-middle" style=color:green>done</td>
-             <td class="align-middle">0</td>
-             <td></td>
-             <td></td>
-             <td></td>
+             <td style=color:green>100%</td>
+             <td class="passCount"></td>
            </tr>
         {% endfor %}
       </tbody>
@@ -51,7 +48,7 @@
          <th>Retry</th>
        </tr>
      </thead>
-     <tbody>
+     <tbody class="results">
        {% for dir in dirs %}
        <tr>
             <td>
@@ -68,3 +65,12 @@
   </div>
   </body>
 </html>
+ <script language="javascript">
+//  $(document).ready(function(){
+//
+// });
+  var passCounts = {{passCounts|safe}};
+  var dirs = {{dirs|safe}};
+for (i in dirs){
+  $(.passCount).text(passCounts[i])
+}
